@@ -8,7 +8,7 @@ class ApartmentImage extends Model {
     public $timestamps = false;
     protected $fillable = ['apartment_id', 'image_path'];
 
-    public function apartment() {
+    public function apartmentImage() {
         return $this->belongsTo(Apartment::class);
     }
 }

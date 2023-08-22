@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApartmentController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// get messages related to a user
+// get messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
+
+// get all apartments // http://127.0.0.1:8000/api/apartments
+Route::get('apartments/all', [ApartmentController::class, 'index']);

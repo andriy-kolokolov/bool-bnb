@@ -31,6 +31,6 @@ class Apartment extends Model {
     }
 
     public function images() {
-        return $this->belongsTo(ApartmentImage::class);
+        return $this->hasMany(ApartmentImage::class);
     }
 }
