@@ -20,8 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// get messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
+// retrieve all messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
-// get all apartments // http://127.0.0.1:8000/api/apartments
+// retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
 Route::get('apartments/all', [ApartmentController::class, 'index']);
+
+// retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/services
+Route::get('apartments/{apartment}/services', [ApartmentController::class, 'getApartmentServices']);

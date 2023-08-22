@@ -14,4 +14,15 @@ class ApartmentController extends Controller {
 
         return response()->json($apartments);
     }
+
+    public function getApartmentServices(int $id) : JsonResponse {
+        $apartment = Apartment::with('services')
+            ->find($id);
+
+        if (!$apartment) {
+            return response()->json(['message' => 'Apartment not found'], 404);
+        }
+
+        return response()->json($apartment->services);
+    }
 }
