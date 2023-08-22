@@ -22,10 +22,6 @@ return new class extends Migration
             $table->integer('square_meters');
             $table->boolean('is_available');
             $table->boolean('is_sponsored');
-            $table->string('zip');
-            $table->string('city');
-            $table->string('address');
-            $table->string('gps_coordinates');
         });
     }
 

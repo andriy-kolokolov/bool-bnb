@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class ApartmentsSeeder extends Seeder {
     public function run() {
+
         $faker = Faker::create();
 
         foreach (range(1, 20) as $index) {
-            DB::table('apartments')->insert([
+            $apartmentId = DB::table('apartments')->insertGetId([
                 'user_id' => $faker->numberBetween(1, 10),
                 'name' => $faker->sentence(4),
                 'rooms' => $faker->numberBetween(1, 5),
@@ -20,6 +21,10 @@ class ApartmentsSeeder extends Seeder {
                 'square_meters' => $faker->numberBetween(50, 150),
                 'is_available' => $faker->boolean,
                 'is_sponsored' => $faker->boolean,
+            ]);
+
+            DB::table('apartment_address')->insert([
+                'apartment_id' => $apartmentId,
                 'zip' => $faker->postcode,
                 'city' => $faker->city,
                 'address' => $faker->address,
