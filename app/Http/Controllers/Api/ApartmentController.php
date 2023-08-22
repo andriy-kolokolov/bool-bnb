@@ -25,7 +25,10 @@ class ApartmentController extends Controller {
         $apartment = Apartment::with('services')
             ->find($id);
         if (!$apartment) {
-            return response()->json(['message' => 'Apartment not found'], 404);
+            return response()->json(['message' => "Apartment with id = {$id} not found"], 404);
+        }
+        if (count($apartment->services) == 0) {
+            return response()->json(['message' => "Apartment with id = {$id} doesn't have services"], 404);
         }
         return response()->json($apartment->services);
     }
@@ -34,11 +37,20 @@ class ApartmentController extends Controller {
         $apartment = Apartment::with('images')
             ->find($id);
         if (!$apartment) {
-            return response()->json(['message' => 'Apartment not found'], 404);
+            return response()->json(['message' => "Apartment with id = {$id} not found"], 404);
         }
         if (count($apartment->images) == 0) {
-            return response()->json(['message' => "Apartment doesn't have images"], 404);
+            return response()->json(['message' => "Apartment with id = {$id} doesn't have images"], 404);
         }
         return response()->json($apartment->images);
+    }
+
+    public function getApartmentById(int $id) : JsonResponse {
+        $apartment = Apartment::with('services', 'images')
+            ->find($id);
+        if (!$apartment) {
+            return response()->json(['message' => "Apartment with id = {$id} not found"], 404);
+        }
+        return response()->json($apartment);
     }
 }

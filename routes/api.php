@@ -35,6 +35,8 @@ Route::prefix('apartments')->group(function () {
     Route::get('{id}/services', [ApartmentController::class, 'getApartmentServices']);
     // retrieve all images related to apartment // http://127.0.0.1:8000/api/apartments/{id}/images
     Route::get('{id}/images', [ApartmentController::class, 'getApartmentImages']);
+    // retrieve apartment by id // http://127.0.0.1:8000/api/apartments/{id}
+    Route::get('{id}', [ApartmentController::class, 'getApartmentById']);
 });
 
 
