@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// test
 // retrieve all messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
