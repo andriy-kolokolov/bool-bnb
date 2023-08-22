@@ -23,16 +23,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // retrieve all messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
-// retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
-Route::get('apartments/all', [ApartmentController::class, 'index']);
-
-//  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/orderedBySponsored
-Route::get('apartments/all/orderedBySponsored', [ApartmentController::class, 'getApartmentsOrderedBySponsored']);
-
-// retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/services
-Route::get('apartments/{apartment}/services', [ApartmentController::class, 'getApartmentServices']);
-
-// retrieve all images related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/images
-Route::get('apartments/{apartment}/images', [ApartmentController::class, 'getApartmentImages']);
+Route::prefix('apartments')->group(function () {
+    // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
+    Route::get('all', [ApartmentController::class, 'index']);
+    //  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/orderedBySponsored
+    Route::get('all/orderedBySponsored', [ApartmentController::class, 'getApartmentsOrderedBySponsored']);
+    // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{id}/services
+    Route::get('{id}/services', [ApartmentController::class, 'getApartmentServices']);
+    // retrieve all images related to apartment // http://127.0.0.1:8000/api/apartments/{id}/images
+    Route::get('{id}/images', [ApartmentController::class, 'getApartmentImages']);
+});
 
 
