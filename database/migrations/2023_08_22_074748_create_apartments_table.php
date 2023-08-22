@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('beds');
             $table->integer('bathrooms');
             $table->integer('square_meters');
-            $table->json('images');
             $table->boolean('is_available');
             $table->boolean('sponsor');
             $table->string('zip');

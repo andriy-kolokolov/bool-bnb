@@ -18,7 +18,6 @@ class ApartmentsSeeder extends Seeder {
                 'beds' => $faker->numberBetween(1, 3),
                 'bathrooms' => $faker->numberBetween(1, 2),
                 'square_meters' => $faker->numberBetween(50, 150),
-                'images' => json_encode([$faker->imageUrl(), $faker->imageUrl(), $faker->imageUrl()]),
                 'is_available' => $faker->boolean,
                 'sponsor' => $faker->boolean,
                 'zip' => $faker->postcode,
