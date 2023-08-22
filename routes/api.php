@@ -31,3 +31,8 @@ Route::get('apartments/all/orderedBySponsored', [ApartmentController::class, 'ge
 
 // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/services
 Route::get('apartments/{apartment}/services', [ApartmentController::class, 'getApartmentServices']);
+
+// retrieve all images related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/images
+Route::get('apartments/{apartment}/images', [ApartmentController::class, 'getApartmentImages']);
+
+
