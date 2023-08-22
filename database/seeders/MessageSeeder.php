@@ -12,7 +12,7 @@ class MessageSeeder extends Seeder
         $faker = Faker::create();
 
         foreach (range(1, 20) as $index) {
-            DB::table('messages')->insert([
+            DB::table('user_messages')->insert([
                 'user_id' => $faker->numberBetween(1, 10),
                 'message' => $faker->paragraph,
                 'email' => $faker->email,
