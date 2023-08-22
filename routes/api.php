@@ -28,7 +28,7 @@ Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
 Route::prefix('apartments')->group(function () {
     // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
-    Route::get('all', [ApartmentController::class, 'index']);
+    Route::get('all', [ApartmentController::class, 'getAllApartments']);
     //  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/orderedBySponsored
     Route::get('all/orderedBySponsored', [ApartmentController::class, 'getApartmentsOrderedBySponsored']);
     // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{id}/services

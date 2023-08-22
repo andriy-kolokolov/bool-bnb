@@ -8,14 +8,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ApartmentController extends Controller {
-    public function index(): JsonResponse {
-        $apartments = Apartment::with('services', 'images')
+    public function getAllApartments(): JsonResponse {
+        $apartments = Apartment::with('services', 'images', 'address')
             ->get();
         return response()->json($apartments);
     }
 
     public function getApartmentsOrderedBySponsored() : JsonResponse {
-        $apartmentsOrdered = Apartment::with('services', 'images')
+        $apartmentsOrdered = Apartment::with('services', 'images', 'address')
             ->orderByDesc('is_sponsored')
             ->get();
         return response()->json($apartmentsOrdered);
@@ -46,7 +46,7 @@ class ApartmentController extends Controller {
     }
 
     public function getApartmentById(int $id) : JsonResponse {
-        $apartment = Apartment::with('services', 'images')
+        $apartment = Apartment::with('services', 'images', 'address')
             ->find($id);
         if (!$apartment) {
             return response()->json(['message' => "Apartment with id = {$id} not found"], 404);

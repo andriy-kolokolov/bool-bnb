@@ -35,7 +35,7 @@ class Apartment extends Model {
     }
 
     public function address() {
-        return $this->hasOne(ApartmentAdress::class);
+        return $this->hasMany(ApartmentAddress::class);
     }
 
 

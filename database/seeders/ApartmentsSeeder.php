@@ -23,7 +23,7 @@ class ApartmentsSeeder extends Seeder {
                 'is_sponsored' => $faker->boolean,
             ]);
 
-            DB::table('apartment_address')->insert([
+            DB::table('apartment_addresses')->insert([
                 'apartment_id' => $apartmentId,
                 'zip' => $faker->postcode,
                 'city' => $faker->city,

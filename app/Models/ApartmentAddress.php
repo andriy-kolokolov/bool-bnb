@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ApartmentAdress extends Model
+class ApartmentAddress extends Model
 {
     public $timestamps = false;
     protected $fillable = [
