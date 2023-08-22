@@ -19,7 +19,7 @@ class ApartmentsSeeder extends Seeder {
                 'bathrooms' => $faker->numberBetween(1, 2),
                 'square_meters' => $faker->numberBetween(50, 150),
                 'is_available' => $faker->boolean,
-                'sponsor' => $faker->boolean,
+                'is_sponsored' => $faker->boolean,
                 'zip' => $faker->postcode,
                 'city' => $faker->city,
                 'address' => $faker->address,

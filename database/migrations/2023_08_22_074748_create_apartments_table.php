@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('bathrooms');
             $table->integer('square_meters');
             $table->boolean('is_available');
-            $table->boolean('sponsor');
+            $table->boolean('is_sponsored');
             $table->string('zip');
             $table->string('city');
             $table->string('address');

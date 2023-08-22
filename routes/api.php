@@ -26,5 +26,8 @@ Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
 Route::get('apartments/all', [ApartmentController::class, 'index']);
 
+//  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/orderedBySponsored
+Route::get('apartments/all/orderedBySponsored', [ApartmentController::class, 'getApartmentsOrderedBySponsored']);
+
 // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{apartment}/services
 Route::get('apartments/{apartment}/services', [ApartmentController::class, 'getApartmentServices']);
