@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// register endpoint // http://127.0.0.1:8000/api/auth/register
+// register endpoint // http://127.0.0.1:8000/api/register
 Route::post("auth/register", [UserController::class, 'register']);
-// login endpoint // http://127.0.0.1:8000/api/auth/login
+// login endpoint // http://127.0.0.1:8000/api/login
 Route::post("auth/login", [UserController::class, 'login']);
 
 
@@ -31,15 +31,13 @@ Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
 Route::prefix('apartments')->group(function () {
     // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
-    Route::get('all', [ApartmentController::class, 'getAllApartments']);
+    Route::get('all', [ApartmentController::class, 'index']);
     //  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/orderedBySponsored
     Route::get('all/orderedBySponsored', [ApartmentController::class, 'getApartmentsOrderedBySponsored']);
     // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{id}/services
     Route::get('{id}/services', [ApartmentController::class, 'getApartmentServices']);
     // retrieve all images related to apartment // http://127.0.0.1:8000/api/apartments/{id}/images
     Route::get('{id}/images', [ApartmentController::class, 'getApartmentImages']);
-    // retrieve apartment by id // http://127.0.0.1:8000/api/apartments/{id}
-    Route::get('{id}', [ApartmentController::class, 'getApartmentById']);
 });
 
 
