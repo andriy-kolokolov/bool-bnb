@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
@@ -24,5 +25,13 @@ class UsersSeeder extends Seeder {
                 'remember_token' => Str::random(10),
             ]);
         }
+
+        User::create([
+            'username' => 'admin',
+            'email' => 'admin@admin.com',
+            'date_birth' => null,
+            'password' => Hash::make('admin123'),
+            'remember_token' => Str::random(10),
+        ]);
     }
 }
