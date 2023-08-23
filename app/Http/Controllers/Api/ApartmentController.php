@@ -53,4 +53,41 @@ class ApartmentController extends Controller {
         }
         return response()->json($apartment);
     }
+
+    /*
+     *********************************   CRUD   ***********************************************************************
+     */
+
+    public function create(Request $request): JsonResponse {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'user_id' => 'required|exists:users,id|integer',
+            'name' => 'required|string',
+            'rooms' => 'required|integer',
+            'beds' => 'required|integer',
+            'bathrooms' => 'required|integer',
+            'square_meters' => 'required|integer',
+            'is_available' => 'required|boolean',
+            'is_sponsored' => 'required|boolean',
+        ]);
+
+        // Create a new apartment using the validated data
+        $apartment = Apartment::create($validatedData);
+
+        // Return a response indicating success and the created apartment data
+        return response()->json([
+            'message' => 'Apartment created successfully',
+            'apartment' => $apartment,
+        ], 201); // 201 Created status code
+    }
+
+    public function update() {
+
+    }
+
+    public function delete() {
+
+    }
+
+
 }
