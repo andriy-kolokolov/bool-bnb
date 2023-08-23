@@ -12,13 +12,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller {
-    public function getUserMessages($userId): JsonResponse {
-        $user = User::with('messages')->find($userId);
 
+    public function getUserById(int $id): JsonResponse {
+        $user = User::with('messages')->find($id);
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }
+        return response()->json($user);
+    }
 
+    public function getUserMessages($id): JsonResponse {
+        $user = User::with('messages')->find($id);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
         return response()->json($user->messages);
     }
 
@@ -85,6 +92,7 @@ class UserController extends Controller {
             $user = User::where('email', $request->email)->first();
 
             return response()->json([
+                'user' => $user,
                 'status' => true,
                 'message' => 'User Logged In Successfully',
                 'token' => $user->createToken('API TOKEN')->plainTextToken
