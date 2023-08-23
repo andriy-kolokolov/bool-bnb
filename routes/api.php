@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // register endpoint // http://127.0.0.1:8000/api/register
-Route::post("register", [UserController::class, 'register']);
+Route::post("auth/register", [UserController::class, 'register']);
 // login endpoint // http://127.0.0.1:8000/api/login
-Route::post("login", [UserController::class, 'login']);
+Route::post("auth/login", [UserController::class, 'login']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
