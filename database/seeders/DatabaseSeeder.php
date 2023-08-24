@@ -10,11 +10,17 @@ class DatabaseSeeder extends Seeder {
      * Seed the application's database.
      */
     public function run(): void {
-        $this->call(UsersSeeder::class);
-        $this->call(ApartmentsSeeder::class);
-        $this->call(ServiceSeeder::class);
-        $this->call(ApartmentServiceSeeder::class);
-        $this->call(MessageSeeder::class);
-        $this->call(ApartmentImageSeeder::class);
+        $this->call([
+            UsersSeeder::class,
+            ApartmentsSeeder::class,
+            ServicesSeeder::class,
+            AddressesSeeder::class,
+            ApartmentServiceSeeder::class,
+            MessagesSeeder::class,
+            ImagesSeeder::class,
+            SponsorshipsSeeder::class,
+            ApartmentSponsorshipSeeder::class,
+            ViewsSeeder::class,
+        ]);
     }
 }

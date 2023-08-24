@@ -9,14 +9,14 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('views', function (Blueprint $table) {
             $table->unsignedBigInteger('apartment_id');
             $table->foreign('apartment_id')
                 ->references('id')
-                ->on('apartments');
-            $table->string('guest_name', 100);
-            $table->string('guest_email', 100);
-            $table->text('message');
+                ->on('apartments')
+                ->onDelete('cascade');
+            $table->string('ip', 20)->nullable(false);
+            $table->dateTime('date_time')->nullable(false);
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('views');
     }
 };

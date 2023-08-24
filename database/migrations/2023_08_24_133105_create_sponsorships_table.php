@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
-            $table->string('level');
-            $table->string('price');
+            $table->string('level', 100)->nullable(false);
+            $table->string('price', 100)->nullable(false);
+            $table->string('duration', 100)->nullable(false);
         });
     }
 
