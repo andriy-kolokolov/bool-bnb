@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apartment_addresses', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->unsignedBigInteger('apartment_id');
-            $table->foreign('apartment_id')->references('id')->on('apartments');
-            $table->string('zip', );
-            $table->string('city');
-            $table->string('address');
-            $table->string('gps_coordinates');
+            $table->foreign('apartment_id')
+                ->references('id')
+                ->on('apartments')
+                ->onDelete('cascade');
+            $table->string('image_path')->nullable();
+            $table->boolean('is_cover')->nullable(false);
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apartment_addresses');
+        Schema::dropIfExists('images');
     }
 };

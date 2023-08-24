@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('apartments', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
-            $table->integer('rooms');
-            $table->integer('beds');
-            $table->integer('bathrooms');
-            $table->integer('square_meters');
-            $table->boolean('is_available');
-            $table->boolean('is_sponsored');
+            $table->string('name', 200)->nullable(false);
+            $table->unsignedinteger('rooms')->nullable(false);
+            $table->unsignedinteger('beds')->nullable(false);
+            $table->unsignedinteger('bathrooms')->nullable(false);
+            $table->unsignedinteger('square_meters')->nullable(false);
+            $table->boolean('is_available')->nullable(false);
+            $table->boolean('is_sponsored')->nullable(false);
         });
     }
 

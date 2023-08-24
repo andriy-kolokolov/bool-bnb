@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_messages', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->text('message');
-            $table->string('email');
+        Schema::create('sponsorships', function (Blueprint $table) {
+            $table->bigIncrements('id')->unique();
+            $table->string('level');
+            $table->string('price');
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_messages');
+        Schema::dropIfExists('sponsorships');
     }
 };
