@@ -31,19 +31,21 @@ Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
 Route::prefix('apartments')->group(function () {
     // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
-    Route::get('/', [ApartmentController::class, 'index']); // Get all apartments with relations
+    Route::get('/', [ApartmentController::class, 'index']);
     //  retrieve apartment by id  http://127.0.0.1:8000/api/apartments/{id}
-    Route::get('/{id}', [ApartmentController::class, 'show']); // Get apartment by ID with relations
+    Route::get('/{id}', [ApartmentController::class, 'show']);
     //  retrieve apartments images // http://127.0.0.1:8000/api/apartments/{id}/images
-    Route::get('/{id}/images', [ApartmentController::class, 'getImages']); // Get apartment images
+    Route::get('/{id}/images', [ApartmentController::class, 'getImages']);
     // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{id}/services
-    Route::get('/{id}/services', [ApartmentController::class, 'getServices']); // Get apartment services
+    Route::get('/{id}/services', [ApartmentController::class, 'getServices']);
     //  retrieve apartments views // http://127.0.0.1:8000/api/apartments/{id}/views
-    Route::get('/{id}/views', [ApartmentController::class, 'getViews']); // Get apartment views
+    Route::get('/{id}/views', [ApartmentController::class, 'getViews']);
+    //  retrieve apartments images // http://127.0.0.1:8000/api/apartments/{id}/messages
+    Route::get('/{id}/messages', [ApartmentController::class, 'getMessages']);
     //  retrieve apartments ordered by availability // http://127.0.0.1:8000/api/apartments/ordered-by-availability
-    Route::get('/ordered-by-availability', [ApartmentController::class, 'getAllOrderedByAvailability']); // Get all apartments ordered by availability
+    Route::get('/ordered-by-availability', [ApartmentController::class, 'getAllOrderedByAvailability']);
     //  retrieve apartments ordered by sponsor // http://127.0.0.1:8000/api/apartments/ordered-by-sponsorship
-    Route::get('/ordered-by-sponsorship', [ApartmentController::class, 'getAllOrderedBySponsorship']); // Get all apartments ordered by sponsorship
+    Route::get('/ordered-by-sponsorship', [ApartmentController::class, 'getAllOrderedBySponsorship']);
 });
 
 

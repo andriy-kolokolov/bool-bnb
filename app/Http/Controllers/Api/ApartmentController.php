@@ -68,4 +68,16 @@ class ApartmentController extends Controller {
 
         return response()->json($views);
     }
+
+    public function getMessages($id) {
+        $apartment = Apartment::with('messages')->find($id);
+
+        if (!$apartment) {
+            return response()->json(['message' => 'Apartment not found'], 404);
+        }
+
+        $messages = $apartment->messages;
+
+        return response()->json($messages);
+    }
 }
