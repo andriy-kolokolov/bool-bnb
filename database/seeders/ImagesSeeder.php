@@ -17,9 +17,13 @@ class ImagesSeeder extends Seeder {
             $numImages = $faker->numberBetween(1, 5);
 
             for ($i = 0; $i < $numImages; $i++) {
+                $imageWidth = $faker->numberBetween(800, 1200);
+                $imageHeight = $faker->numberBetween(600, 900);
+                $imagePath = "https://picsum.photos/{$imageWidth}/{$imageHeight}";
+
                 DB::table('images')->insert([
                     'apartment_id' => $apartmentId,
-                    'image_path' => $faker->imageUrl(800, 600, 'apartment', true),
+                    'image_path' => $imagePath,
                     'is_cover' => ($i === 0), // Set the first image as the cover
                 ]);
             }

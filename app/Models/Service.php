@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model {
     public $timestamps = false;
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'icon',
+    ];
 
-    public function apartments() {
+    public function apartments()
+    {
         return $this->belongsToMany(Apartment::class);
     }
 }

@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ApartmentAddress extends Model
-{
+class View extends Model {
+    use HasFactory;
+
     public $timestamps = false;
     protected $fillable = [
         'apartment_id',
-        'zip',
-        'city',
-        'address',
-        'gps_coordinates'
+        'ip',
+        'date_time',
     ];
 
-    public function apartmentAddress() {
+    public function apartment() {
         return $this->belongsTo(Apartment::class);
     }
 }

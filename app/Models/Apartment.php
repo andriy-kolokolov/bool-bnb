@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model {
+
     public $timestamps = false;
     protected $fillable = [
         'user_id',
@@ -13,17 +14,16 @@ class Apartment extends Model {
         'beds',
         'bathrooms',
         'square_meters',
-        'images',
         'is_available',
-        'sponsor',
-        'zip',
-        'city',
-        'address',
-        'gps_coordinates',
+        'is_sponsored',
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function addresses() {
+        return $this->hasMany(Address::class);
     }
 
     public function services() {
@@ -31,12 +31,10 @@ class Apartment extends Model {
     }
 
     public function images() {
-        return $this->hasMany(ApartmentImage::class);
+        return $this->hasMany(Image::class);
     }
 
-    public function address() {
-        return $this->hasMany(ApartmentAddress::class);
+    public function views() {
+        return $this->hasMany(View::class);
     }
-
-
 }
