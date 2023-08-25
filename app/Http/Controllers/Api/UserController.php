@@ -37,6 +37,7 @@ class UserController extends Controller {
                     'username' => 'required',
                     'email' => 'required|email|unique:users,email',
                     'password' => 'required',
+                    'confirmPassword' => 'required'
                 ]);
 
             if ($validateUser->fails()) {
@@ -56,6 +57,7 @@ class UserController extends Controller {
             return response()->json([
                 'status' => true,
                 'message' => 'User created Successfully',
+                'user' => $user,
                 'token' => $user->createToken("API TOKEN")->plainTextToken
             ], 200);
         } catch (\Throwable $th) {

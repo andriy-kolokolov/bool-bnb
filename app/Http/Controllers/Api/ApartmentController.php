@@ -23,7 +23,7 @@ class ApartmentController extends Controller {
         return response()->json($apartment);
     }
 
-    public function getAllOrderedByAvailability() {
+    public function getAllOrderedByAvailability(): JsonResponse {
         $apartments = Apartment::with(['user', 'addresses', 'services', 'images', 'views'])
             ->orderBy('is_available', 'desc')
             ->get();
