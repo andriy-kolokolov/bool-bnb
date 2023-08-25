@@ -2,12 +2,20 @@
 
 return [
     [
+        'apartment_id' => '0',
+        'street'       => '',
+        'zip'          => '',
+        'city'         => '',
+        'latitude'     => '',
+        'longitude'    => '',
+    ],
+    [
         'apartment_id' => '1',
-        'street'       => 'Via S. Gaetano',
-        'zip'          => '16031',
-        'city'         => 'Pieve Ligure, Liguria',
-        'latitude'     => '44.374413',
-        'longitude'    => '9.096673',
+        'street'       => '',
+        'zip'          => '',
+        'city'         => '',
+        'latitude'     => '',
+        'longitude'    => '',
     ],
     [
         'apartment_id' => '2',
@@ -187,9 +195,9 @@ return [
     ],
     [
         'apartment_id' => '24',
-        'street'       => '',
-        'zip'          => '',
-        'city'         => '',
+        'street'       => 'Via S. Gaetano',
+        'zip'          => '16031',
+        'city'         => 'Pieve Ligure, Liguria',
         'latitude'     => '',
         'longitude'    => '',
     ],
@@ -387,14 +395,6 @@ return [
     ],
     [
         'apartment_id' => '49',
-        'street'       => '',
-        'zip'          => '',
-        'city'         => '',
-        'latitude'     => '',
-        'longitude'    => '',
-    ],
-    [
-        'apartment_id' => '50',
         'street'       => '',
         'zip'          => '',
         'city'         => '',
