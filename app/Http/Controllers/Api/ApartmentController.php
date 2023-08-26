@@ -130,7 +130,7 @@ class ApartmentController extends Controller {
         }
     }
 
-    public function update(Request $request, int $id) {
+    public function update(Request $request, int $id): JsonResponse {
         try {
             $apartment = Apartment::find($id);
             $validatedData = $request->validate([
@@ -237,17 +237,22 @@ class ApartmentController extends Controller {
 
     public function destroy($id): JsonResponse {
         $apartment = Apartment::find($id);
-
         if (!$apartment) {
             return response()->json(['message' => 'Apartment not found'], 404);
         }
-
+        $apartment->address()->delete();
+        $apartment->images()->delete();
+        $apartment->services()->detach();
+        $apartment->sponsorships()->detach();
+        $apartment->messages()->delete();
+        $apartment->views()->delete();
         $apartment->delete();
 
         return response()->json(['message' => 'Apartment deleted']);
     }
 
     // END CRUDS
+
 
     public function getAllOrderedByAvailability(): JsonResponse {
         $apartments = Apartment::with(['user', 'address', 'services', 'images', 'views'])
@@ -257,7 +262,7 @@ class ApartmentController extends Controller {
         return response()->json($apartments);
     }
 
-    public function getAllOrderedBySponsorship() {
+    public function getAllOrderedBySponsorship(): JsonResponse {
         $apartments = Apartment::with(['user', 'address', 'services', 'images', 'views'])
             ->orderByDesc('is_sponsored')
             ->get();
@@ -295,7 +300,7 @@ class ApartmentController extends Controller {
         return response()->json($views);
     }
 
-    public function getMessages($id) {
+    public function getMessages($id): JsonResponse {
         $apartment = Apartment::with('messages')->find($id);
 
         if (!$apartment) {

@@ -35,11 +35,11 @@ Route::prefix('apartments')->group(function () {
     Route::get('/', [ApartmentController::class, 'index']);
     //  retrieve apartment by id  http://127.0.0.1:8000/api/apartments/{id}
     Route::get('/{id}', [ApartmentController::class, 'show']);
-    //  add apartment // POST http://127.0.0.1:8000/api/apartments/
+    //  add apartment // method POST http://127.0.0.1:8000/api/apartments/
     Route::post('/', [ApartmentController::class, 'store']);
-    //  update apartment // PUT http://127.0.0.1:8000/api/apartments/{id}
+    //  update apartment // method PUT http://127.0.0.1:8000/api/apartments/{id}
     Route::put('/{id}', [ApartmentController::class, 'update']);
-    //  delete apartment // DELETE http://127.0.0.1:8000/api/apartments/{id}
+    //  delete apartment // method DELETE http://127.0.0.1:8000/api/apartments/{id}
     Route::delete('/{id}', [ApartmentController::class, 'destroy']);
 
 
