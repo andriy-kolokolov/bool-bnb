@@ -22,18 +22,28 @@ Route::post("auth/register", [UserController::class, 'register']);
 Route::post("auth/login", [UserController::class, 'login']);
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 // retrieve all messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);
 
 Route::prefix('apartments')->group(function () {
+    // CRUDS
     // retrieve all apartments // http://127.0.0.1:8000/api/apartments/all
     Route::get('/', [ApartmentController::class, 'index']);
     //  retrieve apartment by id  http://127.0.0.1:8000/api/apartments/{id}
     Route::get('/{id}', [ApartmentController::class, 'show']);
+    //  add apartment // POST http://127.0.0.1:8000/api/apartments/
+    Route::post('/', [ApartmentController::class, 'store']);
+    //  update apartment // PUT http://127.0.0.1:8000/api/apartments/{id}
+    Route::put('/{id}', [ApartmentController::class, 'update']);
+    //  delete apartment // DELETE http://127.0.0.1:8000/api/apartments/{id}
+    Route::delete('/{id}', [ApartmentController::class, 'destroy']);
+
+
+
     //  retrieve apartments images // http://127.0.0.1:8000/api/apartments/{id}/images
     Route::get('/{id}/images', [ApartmentController::class, 'getImages']);
     // retrieve all services related to apartment // http://127.0.0.1:8000/api/apartments/{id}/services

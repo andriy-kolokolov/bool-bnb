@@ -18,12 +18,12 @@ class Apartment extends Model {
         'is_sponsored',
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function address() {
+        return $this->hasOne(Address::class);
     }
 
-    public function addresses() {
-        return $this->hasMany(Address::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     public function services() {
@@ -40,5 +40,9 @@ class Apartment extends Model {
 
     public function messages() {
         return $this->hasMany(Message::class);
+    }
+
+    public function sponsorships() {
+        return $this->belongsToMany(Sponsorship::class);
     }
 }

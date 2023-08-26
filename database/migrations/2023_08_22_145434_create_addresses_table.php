@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('street', 200);
             $table->string('city', 100);
             $table->string('zip', 10);
-            $table->string('latitude', 15)->nullable(false);
-            $table->string('longitude', 15)->nullable(false);
+            $table->string('latitude', 15)->nullable();
+            $table->string('longitude', 15)->nullable();
         });
     }
 
