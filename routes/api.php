@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,11 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::post("auth/register", [UserController::class, 'register']);
 // login endpoint // http://127.0.0.1:8000/api/login
 Route::post("auth/login", [UserController::class, 'login']);
-
-
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
 
 // retrieve all messages related to a user // http://127.0.0.1:8000/api/users/{user}/messages
 Route::get('users/{user}/messages', [UserController::class, 'getUserMessages']);

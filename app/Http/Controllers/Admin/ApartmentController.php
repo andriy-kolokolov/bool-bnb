@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
@@ -8,7 +8,6 @@ use App\Models\Apartment;
 use App\Models\Image;
 use App\Models\Service;
 use App\Models\Sponsorship;
-use App\Models\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
