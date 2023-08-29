@@ -16,7 +16,7 @@ return new class extends Migration {
                 ->on('apartments')
                 ->onDelete('cascade');
             $table->string('ip', 20)->nullable(false);
-            $table->dateTime('date_time')->nullable(false);
+            $table->dateTime('date')->nullable(false);
         });
     }
 
