@@ -5,16 +5,16 @@
         @csrf
 
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="username" class="form-label">Username</label>
             <input
                 type="text"
                 class="form-control"
-                id="name"
-                name="name"
+                id="username"
+                name="username"
                 required
                 autofocus
-                autocomplete="name"
-                value="{{ old('name') }}"
+                autocomplete="username"
+                value="{{ old('username') }}"
             >
         </div>
 

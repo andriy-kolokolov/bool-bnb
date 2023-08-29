@@ -1,10 +1,12 @@
+@php $user = Auth::user() @endphp
+
 @extends('admin.layouts.base')
 
 @section('contents')
 
     <div class="text-center text-align">
         <h1 class="page-title">
-            Welcome !
+            Welcome {{ $user->username }}!
         </h1>
     </div>
 
